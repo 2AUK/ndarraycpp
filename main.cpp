@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
     }
     std::cout << "\n";
 
-    arr2d* slice_arr;
+    arr2d slice_arr(M, O);
     for (int i = 0; i < N; i++){
         slice_arr = arr.slice_2d(i);
         std::cout << "new slice\n";
