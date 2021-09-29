@@ -33,6 +33,20 @@ int main(int argc, char *argv[]) {
             std::cout << "\n";
         }
     }
+    std::cout << "\n";
+
+    arr2d* slice_arr;
+    for (int i = 0; i < N; i++){
+        slice_arr = arr.slice_2d(i);
+        std::cout << "new slice\n";
+        for (int i = 0; i < M; i++){
+            for(int j = 0; j < O; j++){
+                    std::cout << slice_arr(i, j) << " ";
+                }
+                std::cout << '\n';
+        }
+        std::cout << '\n';
+    }
 
     return 0;
 }

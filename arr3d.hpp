@@ -11,6 +11,7 @@ class arr3d
     public:
         arr3d(int i, int j, int k);
         std::vector<double> slice_1d(int j, int k);
+        arr2d slice_2d(int i);
         double operator()(int i, int j, int k) const;
         double& operator()(int i, int j, int k);
 };
@@ -35,6 +36,17 @@ std::vector<double> arr3d::slice_1d(int j, int k) {
     std::vector<double> output_arr(dims[0]);
     for (int i = 0; i < dims[0]; i++) {
         output_arr[i] = buffer[i * dims[1] * dims[2] + j * dims[2] + k];
+    }
+    return output_arr;
+}
+
+
+arr2d arr3d::slice_2d(int i) {
+    arr2d output_arr(dims[1], dims[2]);
+    for (int j = 0; j < dims[1]; j++){
+        for (int k = 0; k < dims[2]; k++){
+            output_arr(j, k) = buffer[i * dims[1] * dims[2] + j * dims[2] + k];
+        }
     }
     return output_arr;
 }
